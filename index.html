@@ -29,10 +29,13 @@
             font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
-            margin-top: 20px;
+            margin: 10px;
         }
         .btn:hover {
             background: #ff3366;
+        }
+        #noBtn {
+            position: absolute;
         }
         #valentineImage {
             display: none;
@@ -50,6 +53,7 @@
     <div class="container">
         <h1>Will you be my Valentine? 💖</h1>
         <button class="btn" onclick="showImage()">Yes! 💘</button>
+        <button class="btn" id="noBtn" onclick="moveButton()">No 💔</button>
         <p id="message"></p>
         <img id="valentineImage" src="https://raw.githubusercontent.com/Birdwatcher08/Valentine-Date---Invitation/refs/heads/main/received_9200075996698531.jpeg">
     </div>
@@ -60,6 +64,14 @@
             document.getElementById("message").innerHTML = 
                 "Yay! I can't wait for Valentine's Day with you! 💞<br><br>" +
                 "Happy Valentine's Day to us! ❤️";
+        }
+
+        function moveButton() {
+            let btn = document.getElementById("noBtn");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
         }
     </script>
 </body>
