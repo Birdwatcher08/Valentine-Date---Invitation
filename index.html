@@ -21,6 +21,13 @@
         h1 {
             font-size: 36px;
         }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
         .btn {
             background: #ff4d6d;
             color: white;
@@ -29,7 +36,8 @@
             font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
-            margin: 10px;
+            transition: 0.2s;
+            position: relative;
         }
         .btn:hover {
             background: #ff3366;
@@ -52,8 +60,10 @@
 <body>
     <div class="container">
         <h1>Will you be my Valentine? 💖</h1>
-        <button class="btn" onclick="showImage()">Yes! 💘</button>
-        <button class="btn" id="noBtn" onclick="moveButton()">No 💔</button>
+        <div class="btn-container">
+            <button class="btn" onclick="showImage()">Yes! 💘</button>
+            <button class="btn" id="noBtn" onclick="moveButton()">No 💔</button>
+        </div>
         <p id="message"></p>
         <img id="valentineImage" src="https://raw.githubusercontent.com/Birdwatcher08/Valentine-Date---Invitation/refs/heads/main/received_9200075996698531.jpeg">
     </div>
@@ -68,10 +78,9 @@
 
         function moveButton() {
             let btn = document.getElementById("noBtn");
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 100);
-            btn.style.left = x + "px";
-            btn.style.top = y + "px";
+            let x = Math.random() * (window.innerWidth / 2);
+            let y = Math.random() * (window.innerHeight / 2);
+            btn.style.transform = `translate(${x}px, ${y}px)`;
         }
     </script>
 </body>
